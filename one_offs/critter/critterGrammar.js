@@ -1,5 +1,5 @@
 var critterGrammar = {
-        "origin":["#adj-combo# #location# #animal#"],
+        "origin":["#adj-combo# #animal#"],
         "adj-combo":[
                         "#adj-size# #adj-color# #adj-texture# #adj-location#", 
                         "#adj-size# #adj-texture# #adj-location#", 
