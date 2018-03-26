@@ -6,7 +6,7 @@ function makeCritters(num){
             class : "critter-div col-4 card"
         }).text(grammar.flatten("#origin#"));
 
-        $("#critter-pen").append(critterDiv);
+        $("#critter-pen").prepend(critterDiv);
     }
 }
 
