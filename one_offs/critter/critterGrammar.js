@@ -8,24 +8,28 @@ var critterGrammar = {
                 "#adj-combo# #animal#-#animal#",
                 "#adj-combo# #animal#-#noun-prefix##animal#",
                 "#adj-combo# #adj-location##noun-postfix#",
+                "#adj-combo# #animal##noun-postfix#",
                 "#adj-combo# #noun-prefix##noun-postfix#"
         ],
         "adj-combo":[
-                        "#adj-size# #adj-color# #adj-texture# #adj-doing# #adj-location#", 
+                        "#adj-size# #normal-color# #adj-texture# #adj-doing# #adj-location#", 
                         "#adj-size#", 
-                        "#adj-color#", 
+                        "#normal-color#", 
+                        "#fancy-color#", 
                         "#adj-texture#", 
                         "#adj-location#", 
                         "#adj-doing#",
-                        "#adj-size# #adj-color#", 
-                        "#adj-color# #adj-texture#", 
+                        "#adj-size# #normal-color#", 
+                        "#normal-color# #adj-texture#", 
+                        "#fancy-color# #adj-texture#", 
                         "#adj-texture# #adj-doing#", 
                         "#adj-doing# #adj-location#", 
                         "#adj-size# #adj-location#", 
-                        "#adj-color# #adj-doing#", 
-                        "#adj-color# #adj-location#", 
-                        "#adj-size# #adj-color# #adj-doing# #adj-location#", 
-                        "#adj-size# #adj-color# #adj-location#"
+                        "#normal-color# #adj-doing#", 
+                        "#normal-color# #adj-location#", 
+                        "#fancy-color# #adj-location#", 
+                        "#adj-size# #normal-color# #adj-doing# #adj-location#", 
+                        "#adj-size# #normal-color# #adj-location#"
                     ],
         "adj-texture":[
                 "fluffy", "fuzzy", 
@@ -35,8 +39,12 @@ var critterGrammar = {
         "gem-color":[
                 "diamond", "sapphire", "topaz", "emerald", "ruby"
         ],
-        "metallic-color":[
-                                "gold", "silver", "copper", "bronze", "platinum","brass",
+        "metal-color":[ "gold", "silver", "copper", "bronze", "platinum","brass"],
+        "metallic-color":[ 
+                                "metallic #metal-color#",
+                                "shiny #metal-color#",
+                                "dull #metal-color#",
+                                "oxidized #metal-color#",
                                 "#warm-color#-copper", "#warm-color#-gold", "#warm-color#-bronze", "#warm-color#-brass",
                                 "#cold-color#-silver", "#cold-color#-platinum"
                          ],
@@ -59,6 +67,7 @@ var critterGrammar = {
                 "jumping", "burrowing", "flying", "screaming", 
                 "dancing", "hopping", "gliding", "humming", 
                 "stinging", "biting"
+//                , "sucking"
         ],
         "adj-size" : ["miniature","giant"],
         "adj-location" :[
@@ -72,22 +81,26 @@ var critterGrammar = {
         ],
         "noun-doer" :[
                 "hopper", "jumper", "runner", "singer", "dancer","burrower","glider", "fisher", "eater"
+//                ,"sucker", "pecker"
         ],
         "noun-prefix":[
-                "pea", "mag", "mon",
-                "bat", "ham", "jelly", "gos", "dragon", 
+                "pea", "mag", "mon", "nar",
+                "bat", "ham", "jelly", "gos",
                 "queen", "king", 
                 "wild", 
                 "kooka", "meer", "lap"
         ],
         "noun-postfix":[
-                "ling","wing","cock","hen","burra"
+                "ling", "wing", "hen", "burra", "roo", "coon",
+                "fish","fly",
+                "eater","fisher"
         ],
-        "adj-color" :[
-                "#normal-color#",
+        "fancy-color" :[
+                "#metal-color#",
                 "#metallic-color#",
                 "#gem-color#",
                 "#primary-color#-#secondary-color#",
+                "#secondary-color#-#primary-color#",
                 "#normal-color# pearl",
                 "#normal-color# #gem-color#",
                 "royal #normal-color#",
@@ -109,7 +122,7 @@ var critterGrammar = {
                 'buffalo', 'butterfly', 'camel', 'capybara', 'caribou', 'cassowary', 'cat', 'caterpillar', 'cow',
                 'centipede', 'chamois', 'cheetah', 'chicken', 'chimpanzee', 'chinchilla', 'chough', 'clam', 'cobra', 'cockroach', 
                 'cod', 'cormorant', 'coyote', 'crab', 'crane', 'crocodile', 'crow', 'curlew', 'deer', 'dinosaur', 
-                'dog', 'dogfish', 'dolphin', 'donkey', 'dotterel', 'dove', 'dragonfly', 'duck', 'dugong', 'dunlin', 'dragon',
+                'dog', 'dolphin', 'donkey', 'dotterel', 'dove', 'dragon', 'duck', 'dugong', 'dunlin', 'dragon',
                 'eagle', 'echidna', 'eel', 'egret', 'eland', 'elephant', 'elk', 'emu', 'falcon', 
                 'ferret', 'finch', 'fish', 'flamingo', 'fly', 'fox', 'fowl', 'frog', 'gaur', 'gazelle', 'gerbil', 
                 'giraffe', 'gnat', 'gnu', 'goat', 'goose', 'gorilla',
