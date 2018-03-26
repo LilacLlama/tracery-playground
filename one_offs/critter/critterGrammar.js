@@ -11,7 +11,7 @@ var critterGrammar = {
                 "#adj-regular# #animal##noun-postfix#", // ex: red spotted elephantseal
                 "#adj-regular# #noun-prefix##noun-postfix#", // ex: screaming arctic pealing
                 "#adj-regular# #noun-obj##noun-part#", // ex: silver striped spoonbill
-                "#adj-regular# #noun-obj#-#animal#", // ex: giant blue spoongoose
+//                 "#adj-regular# #noun-obj#-#animal#", // ex: giant blue spoongoose
                 
                 "#adj-complex# #animal#",  // ex: giant peruvian red-striped cockatoo
                 "#adj-complex# #noun-prefix##noun-postfix#", // ex: screaming mountain fairy peawing
@@ -155,7 +155,7 @@ var critterGrammar = {
                 "puff", "muff"
         ],
         "noun-postfix":[
-                "ling", "wing", "burra", "roo", "coon", "dillo", "alo", "aby",
+                "ling", "wing", "burra", "roo", "coon", "dillo", "alo", "aby", "doodle",
                 "eater", "fisher", "flyer"
         ],
         "noun-part":[
