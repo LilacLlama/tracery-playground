@@ -21,7 +21,7 @@ var critterGrammar = {
         ],
         "adj-simple":[
                 "#adj-importance#",
-                "#adj-size#" 
+                "#adj-size#",
                 "#normal-color#", 
                 "#fancy-color#", 
                 "#adj-texture#", 
