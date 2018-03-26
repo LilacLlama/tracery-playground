@@ -129,7 +129,7 @@ var critterGrammar = {
         ],
         "animal":[
                 'aardvark', 'albatross', 'alligator', 'alpaca', 'ant', 'anteater', 'antelope', 'ape', 'armadillo', 
-                'baboon', 'badger', 'barracuda', 'bat', 'bear', 'beaver', 'bee', 'beetle', 'bison', 'boar', 'bug'
+                'baboon', 'badger', 'barracuda', 'bat', 'bear', 'beaver', 'bee', 'beetle', 'bison', 'boar', 'bug',
                 'buffalo', 'butterfly', 
                 'camel', 'capybara', 'caribou', 'cassowary', 'cat', 'caterpillar', 'cow',
                 'centipede', 'chamois', 'cheetah', 'chicken', 'chimpanzee', 'chinchilla', 'chough', 'clam', 'cobra', 'cockroach', 
