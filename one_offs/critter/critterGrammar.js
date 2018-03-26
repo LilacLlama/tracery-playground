@@ -10,11 +10,11 @@ var critterGrammar = {
                 "#adj-combo# #adj-location##noun-postfix#",
                 "#adj-combo# #animal##noun-postfix#",
                 "#adj-combo# #noun-prefix##noun-postfix#",
-                "#adj-combo# #noun-part##noun-obj#",
+                "#adj-combo# #noun-obj##noun-part#",
                 "#adj-combo# #noun-obj# #animal#"
         ],
         "adj-combo":[
-                        "#adj-size# #normal-color# #adj-texture# #adj-doing# #adj-location#", 
+                        "#adj-size# #normal-color# #adj-texture# #adj-location#", 
                         "#adj-size#", 
                         "#normal-color#", 
                         "#fancy-color#", 
@@ -25,12 +25,11 @@ var critterGrammar = {
                         "#normal-color# #adj-texture#", 
                         "#fancy-color# #adj-texture#", 
                         "#adj-texture# #adj-doing#", 
-                        "#adj-doing# #adj-location#", 
                         "#adj-size# #adj-location#", 
                         "#normal-color# #adj-doing#", 
                         "#normal-color# #adj-location#", 
                         "#fancy-color# #adj-location#", 
-                        "#adj-size# #normal-color# #adj-doing# #adj-location#", 
+                        "#adj-size# #normal-color# #adj-doing#", 
                         "#adj-size# #normal-color# #adj-location#"
                     ],
         "adj-texture":[
