@@ -11,5 +11,5 @@ function makeCritters(num){
 }
 
 $(document).ready(function (){
-    makeCritters(6);
+    makeCritters(15);
 });
