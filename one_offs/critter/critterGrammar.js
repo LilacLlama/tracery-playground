@@ -31,7 +31,8 @@ var critterGrammar = {
                 "#adj-size# #adj-location#",
         ],
         "adj-complex":[
-                        "#adj-size# #normal-color# #adj-texture# #adj-location# #adj-importance#", 
+                        "#adj-size# #normal-color# #adj-texture# #adj-location#", 
+                        "#adj-size# #normal-color# #adj-location# #adj-importance#", 
                         "#adj-size# #normal-color# #adj-importance#", 
                         "#fancy-color# #adj-location#", 
                         "#fancy-color# #adj-texture#",
