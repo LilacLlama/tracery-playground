@@ -78,7 +78,7 @@ var critterGrammar = {
         "adj-pattern":[
                 "striped", "spotted", "ticked",
                 "calico", "roan", "merle", "pointed", "brindle",
-                "throated",
+                "#normal-color# throated",
                 "patchwork", "painted"
         ],   
         "gem-color":[
@@ -112,7 +112,8 @@ var critterGrammar = {
         "adj-doing" : [
                 "jumping", "burrowing", "flying", "screaming", 
                 "dancing", "hopping", "gliding", "humming", 
-                "stinging", "biting", "stinking"
+                "stinging", "biting", "stinking",
+                "draft"
 //                , "sucking"
         ],
         "adj-size" : [
@@ -151,10 +152,10 @@ var critterGrammar = {
                 "kooka", "meer", "lap",
                 "war", "peace",
                 "octo", "septa",
-                "puff"
+                "puff", "muff"
         ],
         "noun-postfix":[
-                "ling", "wing", "burra", "roo", "coon", "dillo",
+                "ling", "wing", "burra", "roo", "coon", "dillo", "alo", "aby",
                 "eater", "fisher", "flyer"
         ],
         "noun-part":[
@@ -194,7 +195,7 @@ var critterGrammar = {
                 'deer', 'dinosaur', 'dog', 'dolphin', 'donkey', 'dotterel', 'dove', 'dragon', 'duck', 'dugong', 'dunlin', 'dragon',
                 'eagle', 'echidna', 'eel', 'egret', 'eland', 'elephant', 'elk', 'emu', 
                 'falcon', 'ferret', 'finch', 'fish', 'flamingo', 'fly', 'fox', 'fowl', 'frog', 
-                'gaur', 'gazelle', 'gerbil', 'giraffe', 'gnat', 'gnu', 'goat', 'goose', 'gorilla', 'gecko',
+                'gar', 'gazelle', 'gerbil', 'giraffe', 'gnat', 'gnu', 'goat', 'goose', 'gorilla', 'gecko',
                 'grouse', 'guanaco', 'gull', 
                 'hamster', 'hare', 'hawk', 'heron', 'herring', 'hippopotamus', 'hornet', 'horse', 'hound', 'hyena', 
                 'ibex', 'ibis', 
