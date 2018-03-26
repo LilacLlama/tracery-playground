@@ -4,14 +4,14 @@ var critterGrammar = {
                 "#adj-simple# #animal#-#noun-prefix##animal#", // red dog-peahen
                 
                 "#adj-regular# #animal#", // ex: giant red panda, miniature antique white whale
-                "#adj-regular# #adj-location##noun-doer#", // red prickled pondhopper
-                "#adj-regular# #animal#-#noun-doer#", // screaming red dog-hopper  
-                "#adj-regular# #animal#-#animal#", // red striped dog-goose
-                "#adj-regular# #adj-location##noun-postfix#", // pink diamond mountainwing
-                "#adj-regular# #animal##noun-postfix#", // red spotted elephantseal
-                "#adj-regular# #noun-prefix##noun-postfix#", // screaming arctic pealing
-                "#adj-regular# #noun-obj##noun-part#", // silver striped spoonbill
-                "#adj-regular# #noun-obj#-#animal#", // giant blue spoongoose
+                "#adj-regular# #adj-location##noun-doer#", // ex: red prickled pondhopper
+                "#adj-regular# #animal#-#noun-doer#", // ex: screaming red dog-hopper  
+                "#adj-regular# #animal#-#animal#", // ex: red striped dog-goose
+                "#adj-regular# #adj-location##noun-postfix#", // ex: pink diamond mountainwing
+                "#adj-regular# #animal##noun-postfix#", // ex: red spotted elephantseal
+                "#adj-regular# #noun-prefix##noun-postfix#", // ex: screaming arctic pealing
+                "#adj-regular# #noun-obj##noun-part#", // ex: silver striped spoonbill
+                "#adj-regular# #noun-obj#-#animal#", // ex: giant blue spoongoose
                 
                 "#adj-complex# #animal#",  // ex: giant peruvian red-striped cockatoo
                 "#adj-complex# #noun-prefix##noun-postfix#", // ex: screaming mountain fairy peawing
@@ -30,40 +30,47 @@ var critterGrammar = {
                 "#adj-pattern#"
         ],
         "adj-regular":[
-                "#adj-size# #normal-color#", 
-                "#adj-size# #fancy-color#", 
+                "#adj-size# #normal-color#", // ex: giant red
+                "#adj-size# #fancy-color#",  // ex: miniature antique white
                 
-                "#fancy-color# #adj-doing#", 
-                "#adj-doing# #normal-color#", 
-                "#normal-color# #adj-location#", 
-                "#normal-color# #adj-pattern#",
-                "#normal-color# #adj-texture#",
+                "#fancy-color# #adj-doing#", // ex: red gold hopping
+                "#adj-doing# #normal-color#", // ex: screaming red
+                "#normal-color# #adj-location#", // ex: green mountain
+                "#normal-color# #adj-pattern#", // ex: purple striped
+                "#normal-color# #adj-texture#", // ex: rose spiked
 
-                "#fancy-color# #adj-location#", 
-                "#fancy-color# #adj-texture#",
-                "#fancy-color# #adj-pattern#"
+                "#fancy-color# #adj-location#", // ex: metallic silver river
+                "#fancy-color# #adj-texture#", // ex: red diamond prickled
+                "#fancy-color# #adj-pattern#", // ex: red-orange striped
+                "#adj-texture-modifiers# #adj-texture#" // ex: thick crested
         ],
         "adj-complex":[
-                        "#adj-size# #adj-location# #normal-color#-#adj-pattern#", 
-                        "#adj-size# #normal-color# #adj-texture# #adj-location#", 
-                        "#adj-size# #normal-color# #adj-location# #adj-importance#", 
-                        "#adj-size# #normal-color# #adj-importance#", 
-                        "#adj-size# #adj-location# #adj-importance#", 
-                        "#adj-doing# #adj-location# #adj-importance#", 
-                        "#fancy-color# #adj-texture# #adj-location#",
-                        "#adj-size# #normal-color# #adj-pattern#",
-                        "#gem-color# #adj-pattern# #adj-importance#",
+                        "#adj-size# #adj-location# #normal-color#-#adj-pattern#", // miniature blue scaled shrub
+                        "#adj-size# #normal-color# #adj-texture# #adj-location#", // giant blue scaled shrub
+                        "#adj-size# #normal-color# #adj-location#", // small green pond
+                        "#adj-size# #normal-color# #adj-importance#", // miniature red queen
+                        "#adj-size# #adj-texture# #adj-importance#", // miniature tufted polar
+                        "#adj-doing# #adj-location# #adj-importance#", // screaming arctic emperor
+                        "#fancy-color# #adj-texture# #adj-location#", // antique white frizzled mountain
+                        "#adj-size# #normal-color#-#adj-pattern#", // giant purple-striped
+                        "#gem-color# #adj-pattern# #adj-importance#", // ruby striped emperor
+                        "#normal-color#-#adj-pattern# #adj-texture-modifiers#-#adj-texture#", // ex: red-striped thick-crested
                     ],
+        "adj-texture-modifiers":[
+                "thick", "sparse", "thin"
+        ],
         "adj-texture":[
                 "fluffy", "fuzzy", "spikey", "frizzy",
                 "tufted", "crested", "frizzled",
-                "scaled", "prickled", "spiked"
+                "scaled", "prickled", "spiked",
+                "horned",
+                "bald"
         ],    
         "adj-pattern":[
                 "striped", "spotted", "ticked",
                 "calico", "roan", "merle", "pointed",
                 "throated",
-                "patchwork"
+                "patchwork", "painted"
         ],   
         "gem-color":[
                 "diamond", "sapphire", "topaz", "emerald", "ruby"
@@ -85,7 +92,8 @@ var critterGrammar = {
         "normal-color":[
                                 "#primary-color#", "#secondary-color#",
                                 "pink", "purple", "lavender", "orchid",
-                                "maroon", "rose", "rust", "cerise", "fuchsia", "peach", "mauve", "wine", "magenta",
+                                "maroon", "rose", "rust", "cerise", "fuchsia", "peach", "mauve", "magenta",
+//                                 "wine", 
                                 "teal", "aqua", "turquoise", "indigo", "azure", "cyan",
                                 "olive", "puce", "sage",
                                 "lemon",
@@ -98,44 +106,53 @@ var critterGrammar = {
                 "stinging", "biting", "stinking"
 //                , "sucking"
         ],
-        "adj-size" : ["miniature","giant"],
-        "adj-importance" : ["king", "queen", "emperor", "fairy", "elder"],
+        "adj-size" : [
+                "miniature", "small", "tiny", "petite", "pocket", "short",
+                "giant", "jumbo", "large", "mammoth", "monstrous", "gigantic", "colossal", "hulking"
+        ],
+        "adj-importance" : [
+                "king", "queen", "emperor", "fairy", "elder", "great", "minor", "poor", "lesser"
+        ],
         "adj-nation" : [
                 "guinea", "komodo", "chilean", "peruvian", "american", "african", "european",
         ],
         "adj-location" :[
                 "mountain", "hill", "plains", "cave", "ridge",
-                "prairie", "grass", "hedge", "tree",
+                "prairie", "grass", "hedge", "tree", "scrub", "bush",
                 "arctic", "polar", "ice",
 //                 "space-faring", 
-                "space", "moon", "star", "galactic",
-                "sea", "river", "pond", "lake", "puddle", 
+                "space", "moon", "sun", "star", "galactic",
+                "sea", "river", "pond", "lake", "puddle", "mud",
                 "water", "wood", "rock", "stone", "rain", "sand"
         ],
         "noun-doer" :[
                 "hopper", "jumper", "runner", 
                 "singer", "dancer", "burrower", 
                 "glider", "fisher", "eater", 
-                "piper"
+                "piper", "wanderer", "wader",
+                "babbler",
 //                ,"sucker", "pecker"
         ],
         "noun-prefix":[
                 "mini", "mega",
+                "nut",
                 "pea", "mag", "mon", "nar",
                 "bat", "ham", "jelly", "gos",
                 "wild", "stink", "sting",
                 "kooka", "meer", "lap",
-                "octo", "septa"
+                "war", "peace",
+                "octo", "septa",
+                "puff"
         ],
         "noun-postfix":[
-                "ling", "wing", "burra", "roo", "coon",
+                "ling", "wing", "burra", "roo", "coon", "dillo",
                 "eater", "fisher", "flyer"
         ],
         "noun-part":[
-                "tail", "bill", "back", "foot"    
+                "tail", "bill", "beak", "back", "foot", "mouth", "crest", "chest", "wing", "eye", "nose"
         ],
         "noun-obj":[
-                "spoon", "box"
+                "spoon", "box", "wax", "fan", "spade"
         ],
         "fancy-color" :[
                 "#metal-color#",
@@ -161,35 +178,35 @@ var critterGrammar = {
         "animal":[
                 'aardvark', 'albatross', 'alligator', 'alpaca', 'ant', 'anteater', 'antelope', 'ape', 'armadillo', 
                 'baboon', 'badger', 'barracuda', 'bat', 'bear', 'beaver', 'bee', 'beetle', 'bison', 'boar', 'bug',
-                'buffalo', 'butterfly', 
-                'camel', 'capybara', 'caribou', 'cassowary', 'cat', 'caterpillar', 'cow',
+                'buffalo', 'butterfly', 'buzzard',
+                'camel', 'capybara', 'caribou', 'cassowary', 'cat', 'caterpillar', 'cow', 'chameleon',
                 'centipede', 'chamois', 'cheetah', 'chicken', 'chimpanzee', 'chinchilla', 'chough', 'clam', 'cobra', 'cockroach', 
-                'cod', 'cormorant', 'coyote', 'crab', 'crane', 'crocodile', 'crow', 'curlew', 
+                'cod', 'cormorant', 'coyote', 'crab', 'crane', 'crocodile', 'crow', 'curlew', 'cuckoo', 'cockatoo',
                 'deer', 'dinosaur', 'dog', 'dolphin', 'donkey', 'dotterel', 'dove', 'dragon', 'duck', 'dugong', 'dunlin', 'dragon',
                 'eagle', 'echidna', 'eel', 'egret', 'eland', 'elephant', 'elk', 'emu', 
                 'falcon', 'ferret', 'finch', 'fish', 'flamingo', 'fly', 'fox', 'fowl', 'frog', 
-                'gaur', 'gazelle', 'gerbil', 'giraffe', 'gnat', 'gnu', 'goat', 'goose', 'gorilla',
+                'gaur', 'gazelle', 'gerbil', 'giraffe', 'gnat', 'gnu', 'goat', 'goose', 'gorilla', 'gecko',
                 'grouse', 'guanaco', 'gull', 
                 'hamster', 'hare', 'hawk', 'heron', 'herring', 'hippopotamus', 'hornet', 'horse', 'hound', 'hyena', 
                 'ibex', 'ibis', 
                 'jackal', 'jaguar', 'jay', 'jellyfish', 
-                'kangaroo', 'koala', 'kouprey', 'kudu', 'lark', 'lemur', 'leopard', 'lion', 'llama', 'lobster', 'locust', 
-                'loris', 'louse', 'lyrebird', 
+                'kangaroo', 'koala', 'kouprey', 'kudu', 
+                'lark', 'lemur', 'leopard', 'lion', 'llama', 'lobster', 'locust', 'loris', 'louse', 'lyrebird', "loon",
                 'magpie', 'mallard', 'manatee', 'mandrill', 'mantis', 'marmoset', 'marten', 'meerkat', 
                 'mink', 'mole', 'monkey', 'moose', 'mosquito', 'moth', 'mouse', 'mule', 
-                'narwhal', 'newt', 'nightingale', 'octopus', 'okapi', 'opossum', 'oryx', 'ostrich', 'otter', 'owl', 
-                'ox', 'oyster', 
+                'narwhal', 'newt', 'nightingale', 
+                'octopus', 'okapi', 'opossum', 'oryx', 'ostrich', 'otter', 'owl', 'ox', 'oyster', 
                 'panda', 'panther', 'parrot', 'partridge', 'peafowl', 'pelican', 'penguin', 'pheasant', 
                 'pig', 'pigeon', 'pony', 'porcupine', 'porpoise', 
                 'quail', 'quelea', 'quetzal', 
                 'rabbit', 'raccoon', 'rail', 'ram', 'rat', 'raven', 'reindeer', 'rhinoceros', 'robin', 'rook', 'ray',
-                'salamander', 'salmon', 'sand-dollar', 'sardine', 'scorpion', 'seal', 'shark', 
+                'salamander', 'salmon', 'sand-dollar', 'sardine', 'scorpion', 'seal', 'shark', "shrike",
                 'sheep', 'shrew', 'skunk', 'snail', 'snake', 'sparrow', 'spider', 
                 'squid', 'squirrel', 'starling', 'stork', 'swallow', 'swan', 
-                'tapir', 'tarsier', 'termite', 'tiger', 'toad', 'trout', 'turkey', 'turtle', 
+                'tapir', 'tarsier', 'termite', 'tiger', 'toad', 'trout', 'turkey', 'turtle', "tanager", 'toucan',
                 'urchin', 
                 'vicuña', 'viper', 'vulture', 
-                'wallaby', 'walrus', 'wasp', 'weasel', 'whale', 'wolf', 'wolverine', 'wombat', 
+                'wallaby', 'walrus', 'warbler', 'wasp', 'weasel', 'whale', 'wolf', 'wolverine', 'wombat', 
                 'woodcock', 'woodpecker', 'worm', 'wren', 
                 'yak', 'zebra'
                 ]
