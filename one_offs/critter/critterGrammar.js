@@ -9,7 +9,9 @@ var critterGrammar = {
                 "#adj-combo# #animal#-#noun-prefix##animal#",
                 "#adj-combo# #adj-location##noun-postfix#",
                 "#adj-combo# #animal##noun-postfix#",
-                "#adj-combo# #noun-prefix##noun-postfix#"
+                "#adj-combo# #noun-prefix##noun-postfix#",
+                "#adj-combo# #noun-part##noun-obj#",
+                "#adj-combo# #noun-obj# #animal#"
         ],
         "adj-combo":[
                         "#adj-size# #normal-color# #adj-texture# #adj-doing# #adj-location#", 
@@ -66,7 +68,7 @@ var critterGrammar = {
         "adj-doing" : [
                 "jumping", "burrowing", "flying", "screaming", 
                 "dancing", "hopping", "gliding", "humming", 
-                "stinging", "biting"
+                "stinging", "biting", "stinking"
 //                , "sucking"
         ],
         "adj-size" : ["miniature","giant"],
@@ -80,20 +82,29 @@ var critterGrammar = {
                 "water", "wood", "rock", "stone", "rain", "sand"
         ],
         "noun-doer" :[
-                "hopper", "jumper", "runner", "singer", "dancer","burrower","glider", "fisher", "eater"
+                "hopper", "jumper", "runner", 
+                "singer", "dancer", "burrower", 
+                "glider", "fisher", "eater", 
+                "piper"
 //                ,"sucker", "pecker"
         ],
         "noun-prefix":[
                 "pea", "mag", "mon", "nar",
                 "bat", "ham", "jelly", "gos",
                 "queen", "king", 
-                "wild", 
+                "wild", "stink", "sting",
                 "kooka", "meer", "lap"
         ],
         "noun-postfix":[
                 "ling", "wing", "hen", "burra", "roo", "coon",
-                "fish","fly",
-                "eater","fisher"
+                "fish", "fly", "ray"
+                "eater", "fisher"
+        ],
+        "noun-part":[
+                "tail", "bill", "back", "foot"    
+        ],
+        "noun-obj":[
+                "spoon", "box"
         ],
         "fancy-color" :[
                 "#metal-color#",
@@ -117,30 +128,38 @@ var critterGrammar = {
                 "deep #normal-color#"
         ],
         "animal":[
-                'aardvark', 'albatross', 'alligator', 'alpaca', 'ant', 'anteater', 'antelope', 'ape', 'armadillo', 'baboon', 
-                'badger', 'barracuda', 'bat', 'bear', 'beaver', 'bee', 'beetle', 'bison', 'boar', 
-                'buffalo', 'butterfly', 'camel', 'capybara', 'caribou', 'cassowary', 'cat', 'caterpillar', 'cow',
+                'aardvark', 'albatross', 'alligator', 'alpaca', 'ant', 'anteater', 'antelope', 'ape', 'armadillo', 
+                'baboon', 'badger', 'barracuda', 'bat', 'bear', 'beaver', 'bee', 'beetle', 'bison', 'boar', 'bug'
+                'buffalo', 'butterfly', 
+                'camel', 'capybara', 'caribou', 'cassowary', 'cat', 'caterpillar', 'cow',
                 'centipede', 'chamois', 'cheetah', 'chicken', 'chimpanzee', 'chinchilla', 'chough', 'clam', 'cobra', 'cockroach', 
-                'cod', 'cormorant', 'coyote', 'crab', 'crane', 'crocodile', 'crow', 'curlew', 'deer', 'dinosaur', 
-                'dog', 'dolphin', 'donkey', 'dotterel', 'dove', 'dragon', 'duck', 'dugong', 'dunlin', 'dragon',
-                'eagle', 'echidna', 'eel', 'egret', 'eland', 'elephant', 'elk', 'emu', 'falcon', 
-                'ferret', 'finch', 'fish', 'flamingo', 'fly', 'fox', 'fowl', 'frog', 'gaur', 'gazelle', 'gerbil', 
-                'giraffe', 'gnat', 'gnu', 'goat', 'goose', 'gorilla',
-                'grouse', 'guanaco', 'gull', 'hamster', 'hare', 'hawk', 
-                'heron', 'herring', 'hippopotamus', 'hornet', 'horse', 'hound', 'hyena', 'ibex', 
-                'ibis', 'jackal', 'jaguar', 'jay', 'jellyfish', 'kangaroo', 'koala', 'kookabura', 
-                'kouprey', 'kudu', 'lapwing', 'lark', 'lemur', 'leopard', 'lion', 'llama', 'lobster', 'locust', 
-                'loris', 'louse', 'lyrebird', 'magpie', 'mallard', 'manatee', 'mandrill', 'mantis', 'marmoset', 'marten', 
-                'meerkat', 'mink', 'mole', 'mongoose', 'monkey', 'moose', 'mosquito', 'moth', 'mouse', 'mule', 
+                'cod', 'cormorant', 'coyote', 'crab', 'crane', 'crocodile', 'crow', 'curlew', 
+                'deer', 'dinosaur', 'dog', 'dolphin', 'donkey', 'dotterel', 'dove', 'dragon', 'duck', 'dugong', 'dunlin', 'dragon',
+                'eagle', 'echidna', 'eel', 'egret', 'eland', 'elephant', 'elk', 'emu', 
+                'falcon', 'ferret', 'finch', 'fish', 'flamingo', 'fly', 'fox', 'fowl', 'frog', 
+                'gaur', 'gazelle', 'gerbil', 'giraffe', 'gnat', 'gnu', 'goat', 'goose', 'gorilla',
+                'grouse', 'guanaco', 'gull', 
+                'hamster', 'hare', 'hawk', 'heron', 'herring', 'hippopotamus', 'hornet', 'horse', 'hound', 'hyena', 
+                'ibex', 'ibis', 
+                'jackal', 'jaguar', 'jay', 'jellyfish', 
+                'kangaroo', 'koala', 'kouprey', 'kudu', 'lark', 'lemur', 'leopard', 'lion', 'llama', 'lobster', 'locust', 
+                'loris', 'louse', 'lyrebird', 
+                'magpie', 'mallard', 'manatee', 'mandrill', 'mantis', 'marmoset', 'marten', 'meerkat', 
+                'mink', 'mole', 'monkey', 'moose', 'mosquito', 'moth', 'mouse', 'mule', 
                 'narwhal', 'newt', 'nightingale', 'octopus', 'okapi', 'opossum', 'oryx', 'ostrich', 'otter', 'owl', 
-                'ox', 'oyster', 'panda', 'panther', 'parrot', 'partridge', 'peafowl', 'pelican', 'penguin', 'pheasant', 
-                'pig', 'pigeon', 'pony', 'porcupine', 'porpoise', 'quail', 'quelea', 'quetzal', 
-                'rabbit', 'raccoon', 'rail', 'ram', 'rat', 'raven', 'reindeer', 'rhinoceros', 'robin', 'rook', 
-                'salamander', 'salmon', 'sand-dollar', 'sandpiper', 'sardine', 
-                'scorpion', 'urchin', 'seal', 'shark', 'sheep', 'shrew', 'skunk', 'snail', 
-                'snake', 'sparrow', 'spider', 'spoonbill', 'squid', 'squirrel', 'starling', 'stingray', 'stinkbug', 'stork', 
-                'swallow', 'swan', 'tapir', 'tarsier', 'termite', 'tiger', 'toad', 'trout', 'turkey', 
-                'turtle', 'vicuña', 'viper', 'vulture', 'wallaby', 'walrus', 'wasp', 'weasel', 'whale', 
-                'wildcat', 'wolf', 'wolverine', 'wombat', 'woodcock', 'woodpecker', 'worm', 'wren', 'yak', 'zebra'
+                'ox', 'oyster', 
+                'panda', 'panther', 'parrot', 'partridge', 'peafowl', 'pelican', 'penguin', 'pheasant', 
+                'pig', 'pigeon', 'pony', 'porcupine', 'porpoise', 
+                'quail', 'quelea', 'quetzal', 
+                'rabbit', 'raccoon', 'rail', 'ram', 'rat', 'raven', 'reindeer', 'rhinoceros', 'robin', 'rook', 'ray',
+                'salamander', 'salmon', 'sand-dollar', 'sardine', 'scorpion', 'seal', 'shark', 
+                'sheep', 'shrew', 'skunk', 'snail', 'snake', 'sparrow', 'spider', 
+                'squid', 'squirrel', 'starling', 'stork', 'swallow', 'swan', 
+                'tapir', 'tarsier', 'termite', 'tiger', 'toad', 'trout', 'turkey', 'turtle', 
+                'urchin', 
+                'vicuña', 'viper', 'vulture', 
+                'wallaby', 'walrus', 'wasp', 'weasel', 'whale', 'wolf', 'wolverine', 'wombat', 
+                'woodcock', 'woodpecker', 'worm', 'wren', 
+                'yak', 'zebra'
                 ]
     };
