@@ -1,5 +1,15 @@
 var critterGrammar = {
-        "origin":["#adj-combo# #animal#", "#adj-combo# #adj-location#-#animal#"],
+        "origin":[
+                "#adj-combo# #animal#", 
+                "#adj-combo# #adj-location#-#animal#", 
+                "#adj-combo# #adj-location##noun-doer#",
+                "#adj-combo# #animal##noun-doer#",
+                "#adj-combo# #noun-prefix##animal#",
+                "#adj-combo# #animal#-#animal#",
+                "#adj-combo# #animal#-#noun-prefix##animal#",
+                "#adj-combo# #adj-location##noun-postfix#",
+                "#adj-combo# #noun-prefix##noun-postfix#"
+        ],
         "adj-combo":[
                         "#adj-size# #adj-color# #adj-texture# #adj-doing# #adj-location#", 
                         "#adj-size#", 
@@ -15,9 +25,13 @@ var critterGrammar = {
                         "#adj-color# #adj-doing#", 
                         "#adj-color# #adj-location#", 
                         "#adj-size# #adj-color# #adj-doing# #adj-location#", 
-                        "#adj-size# #adj-color# #adj-location#", 
+                        "#adj-size# #adj-color# #adj-location#"
                     ],
-        "adj-texture":["fluffy", "fuzzy", "prickled", "spikey"],        
+        "adj-texture":[
+                "fluffy", "fuzzy", 
+                "tufted", "crested", "frizzled",
+                "prickled", "spikey"
+        ],        
         "gem-color":[
                 "diamond", "sapphire", "topaz", "emerald", "ruby"
         ],
@@ -41,9 +55,34 @@ var critterGrammar = {
                                 "white", "black", "grey",
                                 "#brown-color#"
                        ],
-        "adj-doing" : ["jumping", "burrowing", "flying", "screaming", "dancing"],
+        "adj-doing" : [
+                "jumping", "burrowing", "flying", "screaming", 
+                "dancing", "hopping", "gliding", "humming", 
+                "stinging", "biting"
+        ],
         "adj-size" : ["miniature","giant"],
-        "adj-location" :["mountain", "river", "plains-dweller","space-faring", "komodo", "sea", "polar", "arctic", "guinea", "prairie"],
+        "adj-location" :[
+                "mountain", "hill", "plains", "cave", "ridge",
+                "prairie", "grass", "hedge", "tree",
+                "arctic", "polar", "ice",
+                "space-faring", "space", "moon", "star", "galactic",
+                "guinea", "komodo", "chilean", "peruvian", "american", "african", "european",
+                "sea", "river", "pond", "lake", "puddle", 
+                "water", "wood", "rock", "stone", "rain", "sand"
+        ],
+        "noun-doer" :[
+                "hopper", "jumper", "runner", "singer", "dancer","burrower","glider", "fisher", "eater"
+        ],
+        "noun-prefix":[
+                "pea", "mag", "mon",
+                "bat", "ham", "jelly", "gos", "dragon", 
+                "queen", "king", 
+                "wild", 
+                "kooka", "meer", "lap"
+        ],
+        "noun-postfix":[
+                "ling","wing","cock","hen","burra"
+        ],
         "adj-color" :[
                 "#normal-color#",
                 "#metallic-color#",
@@ -66,17 +105,17 @@ var critterGrammar = {
         ],
         "animal":[
                 'aardvark', 'albatross', 'alligator', 'alpaca', 'ant', 'anteater', 'antelope', 'ape', 'armadillo', 'baboon', 
-                'badger', 'barracuda', 'bat', 'batfish', 'bear', 'beaver', 'bee', 'beetle', 'bison', 'boar', 
-                'buffalo', 'butterfly', 'camel', 'capybara', 'caribou', 'cassowary', 'cat', 'caterpillar', 'cattle', 'cavefish', 
+                'badger', 'barracuda', 'bat', 'bear', 'beaver', 'bee', 'beetle', 'bison', 'boar', 
+                'buffalo', 'butterfly', 'camel', 'capybara', 'caribou', 'cassowary', 'cat', 'caterpillar', 'cow',
                 'centipede', 'chamois', 'cheetah', 'chicken', 'chimpanzee', 'chinchilla', 'chough', 'clam', 'cobra', 'cockroach', 
                 'cod', 'cormorant', 'coyote', 'crab', 'crane', 'crocodile', 'crow', 'curlew', 'deer', 'dinosaur', 
                 'dog', 'dogfish', 'dolphin', 'donkey', 'dotterel', 'dove', 'dragonfly', 'duck', 'dugong', 'dunlin', 'dragon',
-                'eagle', 'echidna', 'eel', 'egret', 'eland', 'elephant', 'elephant-seal', 'elk', 'emu', 'falcon', 
+                'eagle', 'echidna', 'eel', 'egret', 'eland', 'elephant', 'elk', 'emu', 'falcon', 
                 'ferret', 'finch', 'fish', 'flamingo', 'fly', 'fox', 'fowl', 'frog', 'gaur', 'gazelle', 'gerbil', 
-                'giraffe', 'gnat', 'gnu', 'goat', 'goose', 'gorilla', 'goshawk', 
-                'grasshopper', 'grouse', 'guanaco', 'gull', 'hamster', 'hare', 'hawk', 'hedgehog', 
-                'heron', 'herring', 'hippopotamus', 'hornet', 'horse', 'hound', 'human', 'hummingbird', 'hyena', 'ibex', 
-                'ibis', 'jackal', 'jaguar', 'jay', 'jellyfish', 'kangaroo', 'kingfisher', 'koala', 'kookabura', 
+                'giraffe', 'gnat', 'gnu', 'goat', 'goose', 'gorilla',
+                'grouse', 'guanaco', 'gull', 'hamster', 'hare', 'hawk', 
+                'heron', 'herring', 'hippopotamus', 'hornet', 'horse', 'hound', 'hyena', 'ibex', 
+                'ibis', 'jackal', 'jaguar', 'jay', 'jellyfish', 'kangaroo', 'koala', 'kookabura', 
                 'kouprey', 'kudu', 'lapwing', 'lark', 'lemur', 'leopard', 'lion', 'llama', 'lobster', 'locust', 
                 'loris', 'louse', 'lyrebird', 'magpie', 'mallard', 'manatee', 'mandrill', 'mantis', 'marmoset', 'marten', 
                 'meerkat', 'mink', 'mole', 'mongoose', 'monkey', 'moose', 'mosquito', 'moth', 'mouse', 'mule', 
@@ -87,8 +126,8 @@ var critterGrammar = {
                 'salamander', 'salmon', 'sand-dollar', 'sandpiper', 'sardine', 
                 'scorpion', 'urchin', 'seal', 'shark', 'sheep', 'shrew', 'skunk', 'snail', 
                 'snake', 'sparrow', 'spider', 'spoonbill', 'squid', 'squirrel', 'starling', 'stingray', 'stinkbug', 'stork', 
-                'swallow', 'swan', 'tapir', 'tarsier', 'termite', 'tiger', 'toad', 'treehoppper', 'trout', 'turkey', 
-                'turtle', 'vicuña', 'viper', 'vulture', 'wallaby', 'walrus', 'wasp', 'water-buffalo', 'weasel', 'whale', 
+                'swallow', 'swan', 'tapir', 'tarsier', 'termite', 'tiger', 'toad', 'trout', 'turkey', 
+                'turtle', 'vicuña', 'viper', 'vulture', 'wallaby', 'walrus', 'wasp', 'weasel', 'whale', 
                 'wildcat', 'wolf', 'wolverine', 'wombat', 'woodcock', 'woodpecker', 'worm', 'wren', 'yak', 'zebra'
                 ]
     };
