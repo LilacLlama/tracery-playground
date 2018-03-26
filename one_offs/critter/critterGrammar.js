@@ -13,11 +13,52 @@ var critterGrammar = {
                         "#adj-size# #adj-texture#", 
                         "#adj-texture# #adj-location#"
                     ],
-        "adj-texture":["fluffy", "fuzzy", "prickled", "spikey"],
-        "adj-color" :["red", "lilac", "miniature", "giant"],
+        "adj-texture":["fluffy", "fuzzy", "prickled", "spikey"],        
+        "gem-color":[
+                "diamond", "sapphire", "topaz", "emerald", "ruby"
+        ],
+        "metallic-color":[
+                                "gold", "silver", "copper", "bronze", "platinum","brass"
+                                "#warm-color# copper", "#warm-color# gold", "#warm-color# bronze", "#warm-color# brass",
+                                "#cold-color# silver", "#cold-color# platinum"
+                         ],
+        "primary-color":["red", "blue", "yellow"],
+        "secondary-color":["red", "blue", "yellow"],
+        "warm-color":["red", "yellow", "orange"],
+        "cold-color":["blue", "violet", "green"],
+        "brown-color":["brown", "taupe", "tan", "sepia", "sand", "coffee", "chocolate", "smoke", "wheat", "amber"],
+        "normal-color":[
+                                "#primary-color#", "#secondary-color#",
+                                "pink", "purple", "lavender", "orchid",
+                                "maroon", "rose", "rust", "cerise", "fuchsia", "peach", "mauve", "wine", "magenta",
+                                "teal", "aqua", "turquoise", "indigo", "azure", "cyan",
+                                "olive", "puce", "sage",
+                                "lemon",
+                                "white", "black", "grey",
+                                "#brown-color#"
+                       ],
         "adj-doing" : ["jumping","burrowing"],
         "adj-size" : ["minature","giant"],
         "adj-location" :["mountain", "river", "plains-dweller","space-faring"],
+        "adj-color" :[
+                "#normal-color#",
+                "#metallic-color",
+                "#primary-color#-#secondary-color#",
+                "#normal-color# pearl",
+                "#normal-color# #gem-color#",
+                "royal #normal-color#",
+                "sandy #brown-color#",
+                "sea #cold-color#",
+                "frost #cold-color#",
+                "vivid #normal-color#",
+                "white #brown-color#",
+                "black #brown-color#",
+                "antique #normal-color#",
+                "antique #metallic-color#",
+                "bright #normal-color#",
+                "dark #normal-color#",
+                "deep #normal-color#"
+        ],
         "animal":[
                 'aardvark', 'albatross', 'alligator', 'alpaca', 'ant', 'anteater', 'antelope', 'ape', 'armadillo', 'baboon', 
                 'badger', 'barracuda', 'bat', 'batfish', 'bear', 'beaver', 'bee', 'beetle', 'bison', 'boar', 
