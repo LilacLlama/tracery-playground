@@ -1,9 +1,9 @@
 var critterGrammar = {
         "origin":[
-                "#adj-combo# #animal#", 
+                "#adj-combo# #animal#",
                 "#adj-combo# #adj-location#-#animal#", 
                 "#adj-combo# #adj-location##noun-doer#",
-                "#adj-combo# #animal##noun-doer#",
+                "#adj-combo# #animal#-#noun-doer#",
                 "#adj-combo# #noun-prefix##animal#",
                 "#adj-combo# #animal#-#animal#",
                 "#adj-combo# #animal#-#noun-prefix##animal#",
@@ -14,7 +14,8 @@ var critterGrammar = {
                 "#adj-combo# #noun-obj# #animal#"
         ],
         "adj-combo":[
-                        "#adj-size# #normal-color# #adj-texture# #adj-location#", 
+                        "#adj-size# #normal-color# #adj-texture# #adj-location# #adj-importance#", 
+                        "#adj-importance#",
                         "#adj-size#", 
                         "#normal-color#", 
                         "#fancy-color#", 
@@ -22,10 +23,12 @@ var critterGrammar = {
                         "#adj-location#", 
                         "#adj-doing#",
                         "#adj-size# #normal-color#", 
+                        "#adj-size# #normal-color# #adj-importance#", 
                         "#normal-color# #adj-texture#", 
                         "#fancy-color# #adj-texture#", 
                         "#adj-texture# #adj-doing#", 
                         "#adj-size# #adj-location#", 
+                        "#adj-size# #adj-location# #adj-importance#", 
                         "#normal-color# #adj-doing#", 
                         "#normal-color# #adj-location#", 
                         "#fancy-color# #adj-location#", 
@@ -71,6 +74,7 @@ var critterGrammar = {
 //                , "sucking"
         ],
         "adj-size" : ["miniature","giant"],
+        "adj-importance" : ["king","queen","emperor"],
         "adj-location" :[
                 "mountain", "hill", "plains", "cave", "ridge",
                 "prairie", "grass", "hedge", "tree",
@@ -90,7 +94,6 @@ var critterGrammar = {
         "noun-prefix":[
                 "pea", "mag", "mon", "nar",
                 "bat", "ham", "jelly", "gos",
-                "queen", "king", 
                 "wild", "stink", "sting",
                 "kooka", "meer", "lap"
         ],
