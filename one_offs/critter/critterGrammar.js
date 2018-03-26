@@ -45,7 +45,7 @@ var critterGrammar = {
                 "#fancy-color# #adj-location#", // ex: metallic silver river
                 "#fancy-color# #adj-texture#", // ex: red diamond prickled
                 "#fancy-color# #adj-pattern#", // ex: red-orange striped
-                "#adj-texture-modifiers# #adj-texture#" // ex: thick crested
+                "#adj-texture-modifiers# #adj-texture#", // ex: thick crested
                 "#adj-no-texture# #fancy-color#" // ex: bald metallic silver
         ],
         "adj-complex":[
