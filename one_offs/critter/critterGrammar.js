@@ -18,12 +18,12 @@ var critterGrammar = {
                 "diamond", "sapphire", "topaz", "emerald", "ruby"
         ],
         "metallic-color":[
-                                "gold", "silver", "copper", "bronze", "platinum","brass"
+                                "gold", "silver", "copper", "bronze", "platinum","brass",
                                 "#warm-color# copper", "#warm-color# gold", "#warm-color# bronze", "#warm-color# brass",
                                 "#cold-color# silver", "#cold-color# platinum"
                          ],
         "primary-color":["red", "blue", "yellow"],
-        "secondary-color":["red", "blue", "yellow"],
+        "secondary-color":["purple", "green", "violet"],
         "warm-color":["red", "yellow", "orange"],
         "cold-color":["blue", "violet", "green"],
         "brown-color":["brown", "taupe", "tan", "sepia", "sand", "coffee", "chocolate", "smoke", "wheat", "amber"],
@@ -37,12 +37,13 @@ var critterGrammar = {
                                 "white", "black", "grey",
                                 "#brown-color#"
                        ],
-        "adj-doing" : ["jumping","burrowing"],
-        "adj-size" : ["minature","giant"],
+        "adj-doing" : ["jumping", "burrowing", "flying", "screaming", "dancing"],
+        "adj-size" : ["miniature","giant"],
         "adj-location" :["mountain", "river", "plains-dweller","space-faring", "komodo", "sea", "polar", "arctic", "guinea", "prairie"],
         "adj-color" :[
                 "#normal-color#",
-                "#metallic-color",
+                "#metallic-color#",
+                "#gem-color#",
                 "#primary-color#-#secondary-color#",
                 "#normal-color# pearl",
                 "#normal-color# #gem-color#",
