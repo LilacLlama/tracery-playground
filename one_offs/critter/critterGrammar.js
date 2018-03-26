@@ -97,7 +97,7 @@ var critterGrammar = {
         ],
         "noun-postfix":[
                 "ling", "wing", "hen", "burra", "roo", "coon",
-                "fish", "fly", "ray"
+                "fish", "fly", "ray",
                 "eater", "fisher"
         ],
         "noun-part":[
