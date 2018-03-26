@@ -27,14 +27,17 @@ var critterGrammar = {
                 "#adj-texture#", 
                 "#adj-location#", 
                 "#adj-doing#",
-                "#adj-pattern#"
+                "#adj-pattern#",
+                "#adj-no-texture#"
         ],
         "adj-regular":[
                 "#adj-size# #normal-color#", // ex: giant red
                 "#adj-size# #fancy-color#",  // ex: miniature antique white
                 
                 "#fancy-color# #adj-doing#", // ex: red gold hopping
-                "#adj-doing# #normal-color#", // ex: screaming red
+                "#fancy-color# #adj-doing#", // ex: red gold hopping
+                "#normal-color# & #normal-color# #adj-pattern#", // ex: green & blue striped
+                "#normal-color# & #normal-color# #adj-location#", // ex: green & blue pond
                 "#normal-color# #adj-location#", // ex: green mountain
                 "#normal-color# #adj-pattern#", // ex: purple striped
                 "#normal-color# #adj-texture#", // ex: rose spiked
@@ -43,6 +46,7 @@ var critterGrammar = {
                 "#fancy-color# #adj-texture#", // ex: red diamond prickled
                 "#fancy-color# #adj-pattern#", // ex: red-orange striped
                 "#adj-texture-modifiers# #adj-texture#" // ex: thick crested
+                "#adj-no-texture# #fancy-color#" // ex: bald metallic silver
         ],
         "adj-complex":[
                         "#adj-size# #adj-location# #normal-color#-#adj-pattern#", // miniature blue scaled shrub
@@ -54,7 +58,10 @@ var critterGrammar = {
                         "#fancy-color# #adj-texture# #adj-location#", // antique white frizzled mountain
                         "#adj-size# #normal-color#-#adj-pattern#", // giant purple-striped
                         "#gem-color# #adj-pattern# #adj-importance#", // ruby striped emperor
+                        "#adj-no-texture# #fancy-color# #adj-location#", // naked blue-green mountain
+                        "#adj-no-texture# #fancy-color# #adj-importance#", // naked blue-green king
                         "#normal-color#-#adj-pattern# #adj-texture-modifiers#-#adj-texture#", // ex: red-striped thick-crested
+                        "#adj-texture-modifiers#-#adj-texture# #fancy-color#", // ex: thin-horned antique white
                     ],
         "adj-texture-modifiers":[
                 "thick", "sparse", "thin"
@@ -63,12 +70,14 @@ var critterGrammar = {
                 "fluffy", "fuzzy", "spikey", "frizzy",
                 "tufted", "crested", "frizzled",
                 "scaled", "prickled", "spiked",
-                "horned",
-                "bald"
-        ],    
+                "horned"
+        ],
+        "adj-no-texture" : [
+                "bald", "naked"
+        ],
         "adj-pattern":[
                 "striped", "spotted", "ticked",
-                "calico", "roan", "merle", "pointed",
+                "calico", "roan", "merle", "pointed", "brindle",
                 "throated",
                 "patchwork", "painted"
         ],   
@@ -111,7 +120,7 @@ var critterGrammar = {
                 "giant", "jumbo", "large", "mammoth", "monstrous", "gigantic", "colossal", "hulking"
         ],
         "adj-importance" : [
-                "king", "queen", "emperor", "fairy", "elder", "great", "minor", "poor", "lesser"
+                "king", "queen", "emperor", "fairy", "elder", "great", "minor", "poor", "lesser", "true"
         ],
         "adj-nation" : [
                 "guinea", "komodo", "chilean", "peruvian", "american", "african", "european",
