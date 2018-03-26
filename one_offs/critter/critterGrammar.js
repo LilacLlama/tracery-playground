@@ -1,50 +1,70 @@
 var critterGrammar = {
         "origin":[
-                "#adj-simple# #animal#",
-                "#adj-complex# #animal#",
-                "#adj-simple# #adj-location#-#animal#", 
-                "#adj-simple# #adj-location##noun-doer#",
-                "#adj-simple# #animal#-#noun-doer#",
-                "#adj-complex# #noun-prefix##animal#",
-                "#adj-complex# #noun-prefix##animal#",
-                "#adj-simple# #animal#-#animal#",
-                "#adj-simple# #animal#-#noun-prefix##animal#",
-                "#adj-simple# #adj-location##noun-postfix#",
-                "#adj-simple# #animal##noun-postfix#",
-                "#adj-simple# #noun-prefix##noun-postfix#",
-                "#adj-complex# #noun-prefix##noun-postfix#",
-                "#adj-simple# #noun-obj##noun-part#",
-                "#adj-simple# #noun-obj# #animal#"
+                "#adj-simple# #adj-location# #noun-prefix##animal#", // emperor mountain peagoose
+                "#adj-simple# #animal#-#noun-prefix##animal#", // red dog-peahen
+                
+                "#adj-regular# #animal#", // ex: giant red panda, miniature antique white whale
+                "#adj-regular# #adj-location##noun-doer#", // red prickled pondhopper
+                "#adj-regular# #animal#-#noun-doer#", // screaming red dog-hopper  
+                "#adj-regular# #animal#-#animal#", // red striped dog-goose
+                "#adj-regular# #adj-location##noun-postfix#", // pink diamond mountainwing
+                "#adj-regular# #animal##noun-postfix#", // red spotted elephantseal
+                "#adj-regular# #noun-prefix##noun-postfix#", // screaming arctic pealing
+                "#adj-regular# #noun-obj##noun-part#", // silver striped spoonbill
+                "#adj-regular# #noun-obj#-#animal#", // giant blue spoongoose
+                
+                "#adj-complex# #animal#",  // ex: giant peruvian red-striped cockatoo
+                "#adj-complex# #noun-prefix##noun-postfix#", // ex: screaming mountain fairy peawing
+                "#adj-complex# #noun-prefix##animal#", // ex: giant red-scaled jellymoose
+                "#adj-complex# #animal##noun-postfix#", // ex: metallic silver tufted komodo mooseling
+                
         ],
         "adj-simple":[
                 "#adj-importance#",
-                "#adj-size#", 
+                "#adj-size#" 
                 "#normal-color#", 
                 "#fancy-color#", 
                 "#adj-texture#", 
                 "#adj-location#", 
                 "#adj-doing#",
+                "#adj-pattern#"
+        ],
+        "adj-regular":[
                 "#adj-size# #normal-color#", 
-                "#normal-color# #adj-doing#", 
+                "#adj-size# #fancy-color#", 
+                
+                "#fancy-color# #adj-doing#", 
+                "#adj-doing# #normal-color#", 
                 "#normal-color# #adj-location#", 
-                "#normal-color# #adj-texture#", 
-                "#adj-size# #adj-location#",
+                "#normal-color# #adj-pattern#",
+                "#normal-color# #adj-texture#",
+
+                "#fancy-color# #adj-location#", 
+                "#fancy-color# #adj-texture#",
+                "#fancy-color# #adj-pattern#"
         ],
         "adj-complex":[
+                        "#adj-size# #adj-location# #normal-color#-#adj-pattern#", 
                         "#adj-size# #normal-color# #adj-texture# #adj-location#", 
                         "#adj-size# #normal-color# #adj-location# #adj-importance#", 
                         "#adj-size# #normal-color# #adj-importance#", 
-                        "#fancy-color# #adj-location#", 
-                        "#fancy-color# #adj-texture#",
                         "#adj-size# #adj-location# #adj-importance#", 
-                        "#adj-size# #normal-color# #adj-doing#", 
-                        "#adj-size# #normal-color# #adj-location#"
+                        "#adj-doing# #adj-location# #adj-importance#", 
+                        "#fancy-color# #adj-texture# #adj-location#",
+                        "#adj-size# #normal-color# #adj-pattern#",
+                        "#gem-color# #adj-pattern# #adj-importance#",
                     ],
         "adj-texture":[
-                "fluffy", "fuzzy", 
+                "fluffy", "fuzzy", "spikey", "frizzy",
                 "tufted", "crested", "frizzled",
-                "prickled", "spikey"
-        ],        
+                "scaled", "prickled", "spiked"
+        ],    
+        "adj-pattern":[
+                "striped", "spotted", "ticked",
+                "calico", "roan", "merle", "pointed",
+                "throated",
+                "patchwork"
+        ],   
         "gem-color":[
                 "diamond", "sapphire", "topaz", "emerald", "ruby"
         ],
@@ -58,10 +78,10 @@ var critterGrammar = {
                                 "#cold-color#-silver", "#cold-color#-platinum"
                          ],
         "primary-color":["red", "blue", "yellow"],
-        "secondary-color":["purple", "green", "violet"],
+        "secondary-color":["green", "violet", "orange"],
         "warm-color":["red", "yellow", "orange"],
         "cold-color":["blue", "violet", "white"],
-        "brown-color":["brown", "taupe", "tan", "sepia", "sand", "coffee", "chocolate", "smoke", "wheat", "amber"],
+        "brown-color":["brown", "taupe", "tan", "sepia", "sand", "coffee", "chocolate", "smoke", "wheat", "amber", "cream", "dun"],
         "normal-color":[
                                 "#primary-color#", "#secondary-color#",
                                 "pink", "purple", "lavender", "orchid",
@@ -79,14 +99,16 @@ var critterGrammar = {
 //                , "sucking"
         ],
         "adj-size" : ["miniature","giant"],
-        "adj-importance" : ["king", "queen", "emperor", "fairy"],
+        "adj-importance" : ["king", "queen", "emperor", "fairy", "elder"],
+        "adj-nation" : [
+                "guinea", "komodo", "chilean", "peruvian", "american", "african", "european",
+        ],
         "adj-location" :[
                 "mountain", "hill", "plains", "cave", "ridge",
                 "prairie", "grass", "hedge", "tree",
                 "arctic", "polar", "ice",
 //                 "space-faring", 
                 "space", "moon", "star", "galactic",
-                "guinea", "komodo", "chilean", "peruvian", "american", "african", "european",
                 "sea", "river", "pond", "lake", "puddle", 
                 "water", "wood", "rock", "stone", "rain", "sand"
         ],
