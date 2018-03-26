@@ -74,12 +74,13 @@ var critterGrammar = {
 //                , "sucking"
         ],
         "adj-size" : ["miniature","giant"],
-        "adj-importance" : ["king","queen","emperor"],
+        "adj-importance" : ["king", "queen", "emperor", "fairy"],
         "adj-location" :[
                 "mountain", "hill", "plains", "cave", "ridge",
                 "prairie", "grass", "hedge", "tree",
                 "arctic", "polar", "ice",
-                "space-faring", "space", "moon", "star", "galactic",
+//                 "space-faring", 
+                "space", "moon", "star", "galactic",
                 "guinea", "komodo", "chilean", "peruvian", "american", "african", "european",
                 "sea", "river", "pond", "lake", "puddle", 
                 "water", "wood", "rock", "stone", "rain", "sand"
@@ -92,15 +93,16 @@ var critterGrammar = {
 //                ,"sucker", "pecker"
         ],
         "noun-prefix":[
+                "mini", "mega",
                 "pea", "mag", "mon", "nar",
                 "bat", "ham", "jelly", "gos",
                 "wild", "stink", "sting",
-                "kooka", "meer", "lap"
+                "kooka", "meer", "lap",
+                "octo", "septa"
         ],
         "noun-postfix":[
-                "ling", "wing", "hen", "burra", "roo", "coon",
-                "fish", "fly", "ray",
-                "eater", "fisher"
+                "ling", "wing", "burra", "roo", "coon",
+                "eater", "fisher", "flyer"
         ],
         "noun-part":[
                 "tail", "bill", "back", "foot"    
