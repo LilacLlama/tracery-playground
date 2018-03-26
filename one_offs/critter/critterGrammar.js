@@ -155,7 +155,7 @@ var critterGrammar = {
                 "puff", "muff"
         ],
         "noun-postfix":[
-                "ling", "wing", "burra", "roo", "coon", "dillo", "alo", "aby", "doodle",
+                "ling", "wing", "burra", "roo", "coon", "dillo", "alo", "aby",
                 "eater", "fisher", "flyer"
         ],
         "noun-part":[
@@ -192,7 +192,7 @@ var critterGrammar = {
                 'camel', 'capybara', 'caribou', 'cassowary', 'cat', 'caterpillar', 'cow', 'chameleon',
                 'centipede', 'chamois', 'cheetah', 'chicken', 'chimpanzee', 'chinchilla', 'chough', 'clam', 'cobra', 'cockroach', 
                 'cod', 'cormorant', 'coyote', 'crab', 'crane', 'crocodile', 'crow', 'curlew', 'cuckoo', 'cockatoo',
-                'deer', 'dinosaur', 'dog', 'dolphin', 'donkey', 'dotterel', 'dove', 'dragon', 'duck', 'dugong', 'dunlin', 'dragon',
+                'deer', 'dinosaur', 'dog', 'doodle', 'dolphin', 'donkey', 'dotterel', 'dove', 'dragon', 'duck', 'dugong', 'dunlin', 'dragon',
                 'eagle', 'echidna', 'eel', 'egret', 'eland', 'elephant', 'elk', 'emu', 
                 'falcon', 'ferret', 'finch', 'fish', 'flamingo', 'fly', 'fox', 'fowl', 'frog', 
                 'gar', 'gazelle', 'gerbil', 'giraffe', 'gnat', 'gnu', 'goat', 'goose', 'gorilla', 'gecko',
