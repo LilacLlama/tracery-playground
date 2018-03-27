@@ -3,7 +3,7 @@ var grammar = tracery.createGrammar(critterGrammar);
 function makeCritters(num){
     for(var i = 0; i < num; i++){
         var critterDiv = $("<div>").attr({
-            class : "critter-div col-4 card"
+            class : "critter-div col-12 col-md-4 card"
         }).text(grammar.flatten("#origin#"));
 
         $("#critter-pen").prepend(critterDiv);
