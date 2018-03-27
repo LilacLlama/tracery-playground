@@ -80,7 +80,7 @@ var critterGrammar = {
         ],
         "adj-pattern":[
                 "striped", "spotted", "ticked",
-                "calico", "roan", "merle", "pointed", "brindlse",
+                "calico", "roan", "merle", "pointed", "brindle",
                 "#normal-color# throated",
                 "patchwork", "painted"
         ],   
