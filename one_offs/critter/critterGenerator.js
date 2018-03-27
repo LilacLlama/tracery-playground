@@ -9,16 +9,11 @@ function makeCritters(num){
         var color = toggle ? "bg-light" : "bg-dark text-white";
         toggle = !toggle;
 
-    //<a href="sms://+14035550185?body=I%27m%20interested%20in%20your%20product.%20Please%20contact%20me.">Send a SMS message</a>
-    //<i class="fas fa-mobile"></i>
-
-
-
         var smsLink = $("<a>").attr({
             "href":"sms:?&body=" + "I found a '"+critterText+"' in this whackadoodle critter generator!" +
             "(https://bit.ly/2pEkzWv)"
         }).append($("<i>").attr({
-            class:"far fa-comments fa-3x"
+            class:"far fa-comments fa-3x d-block d-sm-none"
         }));
 
         var tweetLink = $("<a>").attr({
