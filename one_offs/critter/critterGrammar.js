@@ -1,3 +1,11 @@
+// Inspiration animals: 
+// naked mole-rat, sapsucker, polarbear, muffalo, spoonbill, peacock
+// elephant-seal, mountain lion, jelly-fish, dogfish, wallaby, komodo dragon
+// emperor penguin, fairy penguin, lapwing, muskox, ruby throated hummingbird
+// sunfish, hedgehog
+
+// Doesn't do yet: sugar glider, golden doodle
+
 var critterGrammar = {
         "origin":[
                 "#adj-simple# #adj-location# #noun-prefix##animal#", // emperor mountain peagoose
@@ -22,8 +30,7 @@ var critterGrammar = {
         "adj-simple":[
                 "#adj-importance#",
                 "#adj-size#",
-                "#normal-color#", 
-                "#fancy-color#", 
+                "#adj-color#", 
                 "#adj-texture#", 
                 "#adj-location#", 
                 "#adj-doing#",
@@ -31,22 +38,18 @@ var critterGrammar = {
                 "#adj-no-texture#"
         ],
         "adj-regular":[
-                "#adj-size# #normal-color#", // ex: giant red
-                "#adj-size# #fancy-color#",  // ex: miniature antique white
+                "#adj-size# #adj-color#", // ex: giant red, miniature antique white
                 
                 "#fancy-color# #adj-doing#", // ex: red gold hopping
                 "#fancy-color# #adj-doing#", // ex: red gold hopping
                 "#normal-color# & #normal-color# #adj-pattern#", // ex: green & blue striped
                 "#normal-color# & #normal-color# #adj-location#", // ex: green & blue pond
-                "#normal-color# #adj-location#", // ex: green mountain
-                "#normal-color# #adj-pattern#", // ex: purple striped
-                "#normal-color# #adj-texture#", // ex: rose spiked
+                "#adj-color# #adj-location#", // ex: green mountain, metallic silver river
+                "#adj-color# #adj-pattern#", // ex: purple striped, red-orange striped
+                "#adj-color# #adj-texture#", // ex: rose spiked, red diamond prickled
 
-                "#fancy-color# #adj-location#", // ex: metallic silver river
-                "#fancy-color# #adj-texture#", // ex: red diamond prickled
-                "#fancy-color# #adj-pattern#", // ex: red-orange striped
                 "#adj-texture-modifiers# #adj-texture#", // ex: thick crested
-                "#adj-no-texture# #fancy-color#" // ex: bald metallic silver
+                "#adj-no-texture# #adj-color#" // ex: bald metallic silver
         ],
         "adj-complex":[
                         "#adj-size# #adj-location# #normal-color#-#adj-pattern#", // miniature blue scaled shrub
@@ -73,11 +76,11 @@ var critterGrammar = {
                 "horned"
         ],
         "adj-no-texture" : [
-                "bald", "naked"
+                "bald", "naked", "nude"
         ],
         "adj-pattern":[
                 "striped", "spotted", "ticked",
-                "calico", "roan", "merle", "pointed", "brindle",
+                "calico", "roan", "merle", "pointed", "brindlse",
                 "#normal-color# throated",
                 "patchwork", "painted"
         ],   
@@ -106,8 +109,7 @@ var critterGrammar = {
                                 "teal", "aqua", "turquoise", "indigo", "azure", "cyan",
                                 "olive", "puce", "sage",
                                 "lemon",
-                                "white", "black", "grey",
-                                "#brown-color#"
+                                "white", "black", "grey"
                        ],
         "adj-doing" : [
                 "jumping", "burrowing", "flying", "screaming", 
@@ -117,8 +119,8 @@ var critterGrammar = {
 //                , "sucking"
         ],
         "adj-size" : [
-                "miniature", "small", "tiny", "petite", "pocket", "short",
-                "giant", "jumbo", "large", "mammoth", "monstrous", "gigantic", "colossal", "hulking"
+                "miniature", "small", "tiny", "petite", "pocket", "short", "nano", "mini",
+                "giant", "jumbo", "large", "mammoth", "monstrous", "gigantic", "colossal", "hulking", "mega"
         ],
         "adj-importance" : [
                 "king", "queen", "emperor", "fairy", "elder", "great", "minor", "poor", "lesser", "true"
@@ -140,17 +142,18 @@ var critterGrammar = {
                 "singer", "dancer", "burrower", 
                 "glider", "fisher", "eater", 
                 "piper", "wanderer", "wader",
-                "babbler",
+                "babbler", "glider",
 //                ,"sucker", "pecker"
         ],
         "noun-prefix":[
-                "mini", "mega",
-                "nut",
-                "pea", "mag", "mon", "nar",
+                "nut", "sap", "honey",
+                "pea", "nar",
+//                 "mag", "mon", 
                 "bat", "ham", "jelly", "gos",
-                "wild", "stink", "sting",
+                "wild", "stink", "sting", "musk",
                 "kooka", "meer", "lap",
-                "war", "peace",
+                "war", 
+//                 "peace",
                 "octo", "septa",
                 "puff", "muff"
         ],
@@ -164,25 +167,37 @@ var critterGrammar = {
         "noun-obj":[
                 "spoon", "box", "wax", "fan", "spade"
         ],
-        "fancy-color" :[
+        "adj-color" :[
+                "#fancy-color#",
+                "#normal-color#",
+                "#brown-color#",
                 "#metal-color#",
                 "#metallic-color#",
                 "#gem-color#",
                 "#primary-color#-#secondary-color#",
                 "#secondary-color#-#primary-color#",
+        ],
+        "fancy-color" :[
+                "rainbow",
+                "prismatic #normal-color#",
                 "#normal-color# pearl",
+                "pearled #normal-color#",
                 "#normal-color# #gem-color#",
                 "royal #normal-color#",
                 "sandy #brown-color#",
-                "sea #cold-color#",
-                "frost #cold-color#",
+                "sea-#cold-color#",
+                "frost-#cold-color#",
                 "vivid #normal-color#",
+                "hot #warm-color#",
+                "cool #cold-color#",
+                "neon #normal-color#",
                 "white #brown-color#",
                 "black #brown-color#",
                 "antique #normal-color#",
                 "antique #metallic-color#",
                 "bright #normal-color#",
                 "dark #normal-color#",
+                "pastel #normal-color#",
                 "deep #normal-color#"
         ],
         "animal":[
@@ -200,9 +215,9 @@ var critterGrammar = {
                 'hamster', 'hare', 'hawk', 'heron', 'herring', 'hippopotamus', 'hornet', 'horse', 'hound', 'hyena', 
                 'ibex', 'ibis', 
                 'jackal', 'jaguar', 'jay', 'jellyfish', 
-                'kangaroo', 'koala', 'kouprey', 'kudu', 
+                'kangaroo', 'koala', 'kouprey', 'kudu', "kraken",
                 'lark', 'lemur', 'leopard', 'lion', 'llama', 'lobster', 'locust', 'loris', 'louse', 'lyrebird', "loon",
-                'magpie', 'mallard', 'manatee', 'mandrill', 'mantis', 'marmoset', 'marten', 'meerkat', 
+                'magpie', 'mallard', 'manatee', 'mandrill', 'mantis', 'marmoset', 'marten', 'meerkat', "mammoth",
                 'mink', 'mole', 'monkey', 'moose', 'mosquito', 'moth', 'mouse', 'mule', 
                 'narwhal', 'newt', 'nightingale', 
                 'octopus', 'okapi', 'opossum', 'oryx', 'ostrich', 'otter', 'owl', 'ox', 'oyster', 
