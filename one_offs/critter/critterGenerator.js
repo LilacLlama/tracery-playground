@@ -15,8 +15,7 @@ function makeCritters(num){
 
 
         var smsLink = $("<a>").attr({
-            "href":"sms://+1234567890?" +
-            "body=I found a '"+critterText+"' in this whackadoodle critter generator!" +
+            "href":"sms:?&body=" + "I found a '"+critterText+"' in this whackadoodle critter generator!" +
             "(https://bit.ly/2pEkzWv)"
         }).append($("<i>").attr({
             class:"far fa-comments fa-3x"
