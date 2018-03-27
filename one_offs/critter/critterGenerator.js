@@ -9,6 +9,18 @@ function makeCritters(num){
         var color = toggle ? "bg-light" : "bg-dark text-white";
         toggle = !toggle;
 
+    //<a href="sms://+14035550185?body=I%27m%20interested%20in%20your%20product.%20Please%20contact%20me.">Send a SMS message</a>
+    //<i class="fas fa-mobile"></i>
+
+
+
+        var smsLink = $("<a>").attr({
+            "href":"sms://+1234567890?" +
+            "body=I found a '"+critterText+"' in this whackadoodle critter generator!" +
+            "(https://bit.ly/2pEkzWv)"
+        }).append($("<i>").attr({
+            class:"far fa-comments fa-3x"
+        }));
 
         var tweetLink = $("<a>").attr({
             "href":"https://twitter.com/intent/tweet?" +
@@ -23,16 +35,19 @@ function makeCritters(num){
         var critterDiv = $("<div>").attr({
             class : "critter-div col-12 col-md-4 card " +color
         })
-            .append($("<div class='row justify-content-center align-items-center'>").append(tweetLink)
-            .append($("<h3>").attr({
-                class:"card-body text-center"
+            .append($("<div class='row justify-content-center align-items-center'>")
+                .append(smsLink)
+                .append(tweetLink)
+                .append($("<h3>").attr({
+                    class:"card-body text-center"
 
-            }).text(critterText)));
+                }).text(critterText))
+            );
 
         $("#critter-pen").prepend(critterDiv);
     }
 }
 
 $(document).ready(function (){
-    makeCritters(15);
+    makeCritters(30);
 });
