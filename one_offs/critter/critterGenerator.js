@@ -1,6 +1,28 @@
+$.fn.exists = function () {
+    return this.length !== 0;
+}
+
 var grammar = tracery.createGrammar(critterGrammar);
 
 var toggle = true;
+
+function makeHiddenImg(critterText){
+
+    var makeId = critterText.replace(/ /g,"-");
+    makeId = makeId.replace(/&/g,"-");
+
+    if(!$("#"+makeId).exists()){
+        var hiddenImg = $("<img>").attr({
+            src:"http://fleurdellama.com/llamacode/imagemaker.php?critter="+critterText,
+            class:"d-none",
+            id:makeId
+        });
+
+        $("#critter-pen").prepend(hiddenImg);
+    }
+
+    return true;
+}
 
 function makeCritters(num){
     for(var i = 0; i < num; i++){
@@ -20,12 +42,16 @@ function makeCritters(num){
         //    </a>
 
 
+
+
         var pinLink = $("<a>").attr({
+            "onclick":"makeHiddenImg('"+critterText+"');",
             "href":"https://www.pinterest.com/pin/create/button/",
             "data-pin-do":"buttonBookmark",
             "data-pin-custom":"true",
             "data-description":"I just generated a '"+critterText+"' in this whackadoodle critter generator!",
-            "data-media":"https://bit.ly/2pEkzWv"
+            //"data-pin-media":"http://fleurdellama.com/llamacode/imagemaker.php?critter="+critterText,
+            "data-pin-url":"https://bit.ly/2pEkzWv"
         }).append($("<i>").attr({
             class:"fab fa-pinterest fa-3x text-danger"
         }));
@@ -79,6 +105,7 @@ function makeCritters(num){
                 .append(pinLink)
                 .append(smsLink)
                 .append(tweetLink)
+                //.append(hiddenImg)
 
         );
 
