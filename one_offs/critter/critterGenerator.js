@@ -47,10 +47,10 @@ function makeCritters(num){
         var pinLink = $("<a>").attr({
             "onclick":"makeHiddenImg('"+critterText+"');",
             "href":"https://www.pinterest.com/pin/create/button/",
-            "data-pin-do":"buttonBookmark",
+            "data-pin-do":"buttonPin",
             "data-pin-custom":"true",
             "data-description":"I just generated a '"+critterText+"' in this whackadoodle critter generator!",
-            //"data-pin-media":"http://fleurdellama.com/llamacode/imagemaker.php?critter="+critterText,
+            "data-pin-media":"http://fleurdellama.com/llamacode/imagemaker.php?critter="+critterText,
             "data-pin-url":"https://bit.ly/2pEkzWv"
         }).append($("<i>").attr({
             class:"fab fa-pinterest fa-3x text-danger"
