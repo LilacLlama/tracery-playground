@@ -36,6 +36,7 @@ function makeCritters(num){
 
         var iconColor = toggle ? "text-dark" : "text-light";
         var color = toggle ? "bg-light" : "bg-dark text-white";
+        toggle = !toggle;
 
         var pinterestId = makeCritterId(critterText) + "-pinterest";
 
