@@ -1,8 +1,3 @@
-// because this is nice.
-$.fn.exists = function () {
-    return this.length !== 0;
-}
-
 function makeHiddenImg(critterText){
 
     var id = makeCritterId(critterText);
