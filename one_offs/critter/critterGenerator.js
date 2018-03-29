@@ -41,7 +41,7 @@ function makeCritters(num){
             "data-pin-do":"buttonBookmark",
             "data-pin-custom":"true",
             "data-description":"Procedural Generated Critter. I found a '"+critterText+"' in this procedural critter generator powered by Tracery! Check out https://lilacllama.github.io/tracery-playground/one_offs/critters.html to find your own!",
-            "data-pin-media":"http://fleurdellama.com/llamacode/imagemaker.php?critter="+critterText.replace(/&/g,"and"),
+            "data-pin-media":"http://www.lilacllama.com/utilities/textualimage.php?critter="+critterText.replace(/&/g,"and"),
             "data-pin-url":"https://lilacllama.github.io/tracery-playground/one_offs/critters.html",
             "id":pinterestId
         }).append($("<i>").attr({
