@@ -4,7 +4,7 @@ function makeHiddenImg(critterText){
 
     if(!$("#"+id).exists()){
         var hiddenImg = $("<img>").attr({
-            src:"http://fleurdellama.com/llamacode/imagemaker.php?critter="+critterText.replace(/&/g,"and"),
+            src:"www.lilacllama.com/utilities/textualimage.php?critter="+critterText.replace(/&/g,"and"),
             class:"d-none",
             id:id+"-img"
         });
