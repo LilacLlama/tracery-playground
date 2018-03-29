@@ -14,7 +14,6 @@
 <div class="container">
     <h1 class="text-center">Find Unique Color Combos!</h1>
     <h3 class="text-center">><a href="../index.html">Go Back</a></h3>
-    <h3 class="text-center">><a href="https://github.com/LilacLlama/tracery-playground/blob/master/one_offs/color/colorGrammar.js">See the Grammar</a></h3>
     <p class="text-center">Click below to refresh the selected combinations.</p>
     <hr/>
     <div class="row justify-content-center">
@@ -37,18 +36,22 @@
 
 <script>
     var colorGrammar = {
-        "origin":["#[[textColor:#hexColor#][[backgroundColor:#hexColor#]]]svg#"],
-        "svg":["<div class='card col-4'>#cardTitle##cardBody#</div>"],
+        "origin":["#[[textColor:#hexColor#][[backgroundColor:#hexColor#]]]card#"],
+        "card":["<div class='card col-4'>#cardTitle##cardBody#</div>"],
         "hexColor":["#hex##hex##hex##hex##hex##hex#"],
         "hex":["0","1","2","3","4","5","6","7","8","9","A", "B", "C", "D", "E", "F"],
-        "words":["Llama Llama Llama", "Mammoths Are Cool", "UNLEASH THE KRAKEN"],
+        "phrase":["Llamas In Pajamas", "Mammoths Are Cool", "UNLEASH THE KRAKEN"],
+        "word":["LLAMA","SQUID", "FANCY"],
+        "iconType":["fa-bowling-ball", "fa-chess-rook", "fa-rocket", " fa-paw"],
+        "icon":["<i #textColorStyle# class='fa-3x fas #iconType#'></i>"],
+        "textColorStyle":["style='color:#hexSymbol##textColor#'"],
         "hexSymbol":['xxx'],
-        "cardText":["<p style='color:#hexSymbol##textColor#'>#words#</p>"],
-        "bgText":["b:<span class='generatedColor' data-color='#backgroundColor#'>#backgroundColor#</span>"],
-        "txtText":["t:<span class='generatedColor' data-color='#textColor#'>#textColor#</span>"],
-        "cardBody":["<div class='card-body text-center'>#bgText#, #txtText#</div>"],
-        "cardTitle":["<div class='card-title text-center' style='background-color: #hexSymbol##backgroundColor#'>#cardText#</div>"]
-
+        "paragraph":["<p #textColorStyle# class='col-12'>#phrase#</p>"],
+        "header":["<h3 #textColorStyle# class='col-12'>#word#</h3>"],
+        "bgText":["b:<span>#backgroundColor#</span>"],
+        "txtText":["t:<span>#textColor#</span>"],
+        "cardTitle":["<div class='card-title text-center' style='background-color: #hexSymbol##backgroundColor#'>#header##paragraph##icon#</div>"],
+        "cardBody":["<div class='card-body text-center generatedColorPair' data-bg='#backgroundColor#' data-txt='#textColor#'>#bgText#, #txtText#</div>"],
     };
 
     var grammar = tracery.createGrammar(colorGrammar);
@@ -64,20 +67,27 @@
 
     function refreshColorCombos() {
         $("#color-combos").empty();
-        for (var i = 0; i < 50; i++) {
+        for (var i = 0; i < 60; i++) {
             var colorSVG = grammar.flatten("#origin#");
             $("#color-combos").prepend(colorSVG.replace(/xxx/g,"#"));
         }
 
-        $(".generatedColor").click(function(e){
-            var clickedColor = e.currentTarget.getAttribute("data-color");
-            var rgb = hexToRgb(clickedColor);
+        $(".generatedColorPair").click(function(e){
 
-            console.log("#" + clickedColor + "->"
-                    + " r"+ rgb["r"]
-                    + " g"+ rgb["g"]
-                    + " b"+ rgb["b"]
+            var bg_rgb = hexToRgb(e.currentTarget.getAttribute("data-bg"));
+            var txt_rgb = hexToRgb(e.currentTarget.getAttribute("data-txt"));
+
+            console.log(
+                    "//B#" + e.currentTarget.getAttribute("data-bg") + '\n' +
+                    "//T#" + e.currentTarget.getAttribute("data-txt") + '\n' +
+                    "$background  = imagecolorallocate( $my_img, " + bg_rgb["r"]  + ", " + bg_rgb["g"] + ", "  + bg_rgb["b"] + ");" + '\n' +
+                    "$text_colour = imagecolorallocate( $my_img, " + txt_rgb["r"] + ", " + txt_rgb["g"] + ", " + txt_rgb["b"] + ");" + '\n'
+
             );
+
+
+            console.log()
+
         });
     }
 
