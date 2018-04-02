@@ -18,7 +18,7 @@
     <hr/>
     <div class="row justify-content-center">
         <h4 class="col-12 text-center">Make More Combos!</h4>
-        <a onclick="refreshColorCombos()" class="col-2"><p><i class="fas fa-sync-alt"></i></p></a>
+        <a onclick="refreshColorCombos()"><p><i class="fas fa-sync-alt"></i></p></a>
     </div>
     <hr/>
     <div id="color-combos" class="row">
@@ -37,8 +37,10 @@
 <script>
     var colorGrammar = {
         "origin":["#[[textColor:#hexColor#][[backgroundColor:#hexColor#]]]card#"],
-        "card":["<div class='card col-4'>#cardTitle##cardBody#</div>"],
-        "hexColor":["#hex##hex##hex##hex##hex##hex#"],
+        "card":["<div class='card col-12 col-md-4'>#cardTitle##cardBody#</div>"],
+        "hexColor":["#hex##hex##hex##hex##hex##hex#",
+            "00#hex##hex##hex##hex#", "#hex##hex#00#hex##hex#" , "#hex##hex##hex##hex#00",
+            "0000#hex##hex#", "#hex##hex#0000" , "00#hex##hex#00"],
         "hex":["0","1","2","3","4","5","6","7","8","9","A", "B", "C", "D", "E", "F"],
         "phrase":["Llamas In Pajamas", "Mammoths Are Cool", "UNLEASH THE KRAKEN"],
         "word":["LLAMA","SQUID", "FANCY"],
@@ -78,10 +80,10 @@
             var txt_rgb = hexToRgb(e.currentTarget.getAttribute("data-txt"));
 
             console.log(
-                    "//B#" + e.currentTarget.getAttribute("data-bg") + '\n' +
-                    "//T#" + e.currentTarget.getAttribute("data-txt") + '\n' +
-                    "$background  = imagecolorallocate( $my_img, " + bg_rgb["r"]  + ", " + bg_rgb["g"] + ", "  + bg_rgb["b"] + ");" + '\n' +
-                    "$text_colour = imagecolorallocate( $my_img, " + txt_rgb["r"] + ", " + txt_rgb["g"] + ", " + txt_rgb["b"] + ");" + '\n'
+                    "	//B#" + e.currentTarget.getAttribute("data-bg") + '\n' +
+                    "	//T#" + e.currentTarget.getAttribute("data-txt") + '\n' +
+                    "	$background  = imagecolorallocate( $my_img, " + bg_rgb["r"]  + ", " + bg_rgb["g"] + ", "  + bg_rgb["b"] + ");" + '\n' +
+                    "	$text_colour = imagecolorallocate( $my_img, " + txt_rgb["r"] + ", " + txt_rgb["g"] + ", " + txt_rgb["b"] + ");" + '\n'
 
             );
 
