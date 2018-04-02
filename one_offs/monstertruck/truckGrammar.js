@@ -19,7 +19,7 @@ var grammar = {
     "tornado-type" : [ "water-devils", "dust-devils", "tornadoes", "hurricanes"],
     "precipitation" : ["rain", "sleet", "monsoons"],
     "hail-size" : [ "pea", "golf-ball", "bowling-ball", "beach-ball"],
-    "weather-adj" : ["", "flaming", "acid", "freezing", "blood", "squid", "frog", "locust"],
+    "weather-adj" : ["", "flaming", "acid", "freezing", "blood", "squid", "frog", "locust", "#size# spider", "#eel-type# eel"],
     "depth" : ["minor", "major", "apocalyptic"],
 
     "monsterRating":["#monster#,<br/> #monster#, <br/>& #monster#"],
