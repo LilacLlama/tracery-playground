@@ -15,7 +15,11 @@
     <h1 class="text-center">Strange & Exotic Space Salvage</h1>
     <!--<h3 class="text-center">><a href="../index.html">Go Back</a></h3>-->
     <!--<h3 class="text-center">><a href="https://github.com/LilacLlama/tracery-playground/blob/master/one_offs/truck/truckGrammar.js">See the Grammar</a></h3>-->
-    <hr/><hr/>
+    <hr/>
+    <div class="row justify-content-center">
+        <a onclick="makeItem(25)" class="col-4"><p><i class="fas fa-sync-alt"></i> Refresh Salvage Records</p></a>
+    </div>
+    <hr/>
     <div class="row">
         <table class="table table-striped" >
             <thead><th>Space Salvage</th><th>Amt</th><th>Currency</th></thead>
@@ -36,14 +40,26 @@
     var grammar = {
 
         "item":[
-            "#tool#",
+
             "#adj.capitalize# #space-adj.capitalize# #thing.capitalize#",
             "#half-color.capitalize# #space-adj.capitalize# #animal.capitalize#",
             "#extra-adj.capitalize# #ship.capitalize#",
             "#metal.capitalize# #x-size.capitalize##metal-unit.capitalize#",
-            "#half-metal.capitalize# #body.capitalize# #x-size.capitalize#Probe",
-            "#adj-base.capitalize# #half-metal.capitalize# #body.capitalize#",
-            "#extra-adj.capitalize# #space-adj.capitalize# #animal.capitalize# #body.capitalize#",
+
+            "#adj-base.capitalize# #half-metal.capitalize# #body-part.capitalize#",
+            "#animal-bits#",
+            "#medical-tool#"
+        ],
+
+        "medical-tool":[
+            "#tool#",
+            "#half-metal.capitalize# #body-part.capitalize# #x-size.capitalize#Probe",
+        ],
+
+        "animal-bits":[
+            "#extra-adj.capitalize# #space-adj.capitalize# #animal.capitalize# #body-part.capitalize.s#",
+            "#container.capitalize# of #space-adj.capitalize# #animal.capitalize# #body-goo.capitalize#",
+            "#extra-adj.capitalize# #container.capitalize# of #space-adj.capitalize# #animal.capitalize# #body-part.capitalize.s#",
         ],
 
         "ship":["#ship-adj.capitalize# #ship-type.capitalize#"],
@@ -90,7 +106,7 @@
         "tool":[
             "#adj.capitalize# #tool-modifier.capitalize##tool-base.capitalize#",
             "#adj.capitalize# #body-tool.capitalize#",
-            "#body.capitalize# #tool-modifier.capitalize##tool-base.capitalize#",
+            "#body-part.capitalize# #tool-modifier.capitalize##tool-base.capitalize#",
         ],
 
         "adj":["#adj-base.capitalize#", "#extra-adj.capitalize# #adj-base.capitalize#"],
@@ -180,11 +196,26 @@
             "#body-desc#probe","#body-desc#cauterizer","#body-desc#brace",
             "#body-desc#seperator","#body-desc#meter","#body-desc#splint"
         ],
-        "body":[
-            "eye", "ear", "nostril", "blood",
-            "tumor", "eye", "lymphnode", "nerve",
-            "liver","gland","muscle","bile",
-            "cartilage","kidney"
+        "container":["jar", "vial", "flask"],
+        "body-goo":[
+                "blood", "bile", "adrenaline", "fat", "saliva", "tears"
+        ],
+        "body-part":[
+            "artery",
+            "bladder", "bone", "brain",
+            "cartilage", "cerebellum", "colon", "cranium",
+            "ear", "eye",
+            "gallbladder", "gland",
+            "intestine",
+            "joint",
+            "kidney",
+            "larynx", "liver", "lymphnode",
+            "muscle",
+            "nerve",
+            "organ",
+            "spleen", "spine",
+            "tissue", "tooth", "tumor",
+            "vein", "vertebrae",
         ],
         "x-size":["", "micro","macro"]
     };
@@ -194,6 +225,7 @@
     var generator = tracery.createGrammar(grammar);
 
     function makeItem(num){
+        $("#item-table").empty();
         for(var i = 0; i < num; i++){
             var itemText = generator.flatten("#item#");
 
