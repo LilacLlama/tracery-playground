@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Strange & Exotic Space Salvage</title>
+    <link rel="icon" href="imgs/llamazilla.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+<div class="container">
+    <h1 class="text-center">Strange & Exotic Space Salvage</h1>
+    <!--<h3 class="text-center">><a href="../index.html">Go Back</a></h3>-->
+    <!--<h3 class="text-center">><a href="https://github.com/LilacLlama/tracery-playground/blob/master/one_offs/truck/truckGrammar.js">See the Grammar</a></h3>-->
+    <hr/><hr/>
+    <div class="row">
+        <table class="table table-striped" >
+            <thead><th>Space Salvage</th><th>Amt</th><th>Currency</th></thead>
+            <tbody id="item-table"></tbody>
+        </table>
+    </div>
+</div> <!-- /container -->
+</body>
+
+<!-- jQuery first, then Tether, then Bootstrap JS. -->
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+<script src="../js/tracery.js"></script>
+<script>
+
+    var grammar = {
+
+        "item":[
+            "#tool#",
+            "#adj.capitalize# #space-adj.capitalize# #thing.capitalize#",
+            "#half-color.capitalize# #space-adj.capitalize# #animal.capitalize#",
+            "#extra-adj.capitalize# #ship.capitalize#",
+            "#metal.capitalize# #x-size.capitalize##metal-unit.capitalize#",
+            "#half-metal.capitalize# #body.capitalize# #x-size.capitalize#Probe",
+            "#adj-base.capitalize# #half-metal.capitalize# #body.capitalize#",
+            "#extra-adj.capitalize# #space-adj.capitalize# #animal.capitalize# #body.capitalize#",
+        ],
+
+        "ship":["#ship-adj.capitalize# #ship-type.capitalize#"],
+        "ship-adj":["assault", "#space-adj#", "colony", "scuttled", "abandoned"],
+        "ship-type":[
+            "bomber",
+            "carrier","cutter", "corvette",
+            "destroyer", "drop-pod",
+            "frigate",
+            "rocket"
+        ],
+        "piece-adj":["warp", "drive", "cell"],
+        "ship-piece":["engine", "drive", "cell"],
+        "thing":["junk", "fluid", "dust", "crystal"],
+        "animal":[
+            "cow", "squid", "tribble", "jackalope", "lice", "whale"
+        ],
+        "half-color": ["", "#color#"],
+        "half-metal":["", "#metal#"],
+        "metal":["#color.capitalize# #metal-base.capitalize#", "#metal-base.capitalize#"],
+        "metal-base":["copper", "brass", "steel", "silver", "gold", "plutonium", "platinum", "uranidium", "neutronium"],
+        "metal-unit":["sphere","bar", "rod"],
+        "space-adj":["interstellar", "galactic", "solar", "lunar", "space", "star", "subspace"],
+        "color": [
+            "orange", "blue", "white", "black",
+            "grey", "purple", "indigo", "red", "turquoise"
+        ],
+        "currency":[
+            "#color.capitalize# #currency-base.capitalize.s#",
+            "#space-adj.capitalize# #currency-base.capitalize.s#",
+            "#metal.capitalize# #metal-unit.capitalize.s#",
+            "#half-color.capitalize# #half-metal.capitalize# #metal-unit.capitalize.s#",
+        ],
+        "currency-base":[
+            "shard", "credit", "gil", "mark",
+            "orb", "simolean", "unit", "zorkmid",
+        ],
+        "amt":["#numWords.capitalize# #numWordsMore.capitalize#"],
+
+        "numWords":["one", "two", "three","four","five","six","seven","eight","nine",],
+        "numWordsMore":["hundred", "thousand", "million","billion","quadrillion","septillion"],
+        "numWordsMoreMore":["thousand", "million","billion","quadrillion","septillion"],
+
+        "tool":[
+            "#adj.capitalize# #tool-modifier.capitalize##tool-base.capitalize#",
+            "#adj.capitalize# #body-tool.capitalize#",
+            "#body.capitalize# #tool-modifier.capitalize##tool-base.capitalize#",
+        ],
+
+        "adj":["#adj-base.capitalize#", "#extra-adj.capitalize# #adj-base.capitalize#"],
+
+        "extra-adj":[
+            "black-market",
+            "computerized",
+            "flammable", "non-flammable",
+            "destablilized",
+            "grey-market",
+            "high-density",
+            "low-density",
+            "stabilized", "strange",
+            "radioactive",
+        ],
+
+        "adj-base":[
+            "antimatter", "atomic",
+            "bionic",
+            "cosmic", "cybernetic",
+            "dimensional",
+            "holographic",
+            "invisible", "isotopic",
+            "laser",
+            "magnetized",
+            "nuclear",
+            "particle", "psionic",
+            "quantum",
+            "resonating",
+            "sonic",
+            "warp",
+        ],
+
+        "tool-base":[
+            "awl",
+            "chisel", "clamp", "crowbar",
+            "drill",
+            "file",
+            "grinder",
+            "hammer",
+            "lathe", "lever", "level",
+            "mallet",
+            "pliers",
+            "sander", "saw", "screwdriver", "stapler", "spanner",
+            "wrench"
+        ],
+        "tool-modifier":[
+            "astro", "atomi", "auto",
+            "chemo", "chrono", "crypto", "cyber",
+            "dyna",
+            "exo",
+            "gyro",
+            "hydro", "hyper",
+            "iso",
+            "macro", "magno", "mega", "meta", "metallo", "micro", "multi",
+            "nail-gun", "nano", "nucleo",
+            "omni", "oscillo",
+            "para",
+            "sonic",
+            "retro",
+            "techno",
+            "ultra",
+            "varis", "vibro"
+        ],
+        "body-desc":[
+            "abdomino", "angio", "aorto", "arterio", "articulo",
+            "blepharo", "broncho",
+            "cerebro", "cardio", "cerebello", "cranio", "cysto",
+            "dermo",
+            "entero",
+            "facio",
+            "gastro", "gingivo", "glosso", "gnatho",
+            "kerato", "klepto",
+            "lamino", "laryngo",
+            "naso", "neuro",
+            "oculo", "osteo", "oto",
+            "patello","pharyngo", "pyelo",
+            "renal", "rhytido",
+            "septo", "spleno",
+            "thyro", "trachelo",
+            "ventriculo", "vertebro", "viscero",
+            "xeno"
+        ],
+        "body-tool":[
+            "#body-desc#inducer","#body-desc#retractor","#body-desc#healer",
+            "#body-desc#scope","#body-desc#sterilizer","#body-desc#clamp",
+            "#body-desc#probe","#body-desc#cauterizer","#body-desc#brace",
+            "#body-desc#seperator","#body-desc#meter","#body-desc#splint"
+        ],
+        "body":[
+            "eye", "ear", "nostril", "blood",
+            "tumor", "eye", "lymphnode", "nerve",
+            "liver","gland","muscle","bile",
+            "cartilage","kidney"
+        ],
+        "x-size":["", "micro","macro"]
+    };
+
+    const itemSet = new Set([]);
+
+    var generator = tracery.createGrammar(grammar);
+
+    function makeItem(num){
+        for(var i = 0; i < num; i++){
+            var itemText = generator.flatten("#item#");
+
+//            while(itemSet.has(itemText)){
+//                itemText = generator.flatten("#item#");
+//            }
+
+            itemSet.add(itemText);
+
+            var itemRow = $("<tr>").attr({
+                class : "item-row"
+            }).append($("<td>").text(itemText))
+                    .append($("<td>").append(generator.flatten("#amt#")))
+                    .append($("<td>").append(generator.flatten("#currency#")));
+
+            $("#item-table").prepend(itemRow);
+
+        }
+    }
+
+
+
+    $(document).ready(function (){
+        makeItem(25);
+    });
+
+
+
+</script>
+
+</html>
